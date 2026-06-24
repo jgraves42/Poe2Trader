@@ -25,9 +25,10 @@ EXCHANGE_RATE_TTL_SECONDS = 900
 
 
 class TradeClient:
-    def __init__(self, league: str, user_agent: str = DEFAULT_USER_AGENT) -> None:
+    def __init__(self, league: str, session_id: str = "", user_agent: str = DEFAULT_USER_AGENT) -> None:
         self.league = league
-        self._client = httpx.AsyncClient(headers={"User-Agent": user_agent}, timeout=20.0)
+        cookies = {"POESESSID": session_id} if session_id else {}
+        self._client = httpx.AsyncClient(headers={"User-Agent": user_agent}, cookies=cookies, timeout=20.0)
         self._search_limiter = RateLimiter(rules=list(DEFAULT_SEARCH_RULES))
         self._fetch_limiter = RateLimiter(rules=list(DEFAULT_FETCH_RULES))
         self._exchange_limiter = RateLimiter(rules=list(DEFAULT_EXCHANGE_RULES))
@@ -98,7 +99,7 @@ class TradeClient:
             entries.extend(entry for entry in data.get("result", []) if entry)
         return entries
 
-    async def search_and_fetch(self, query: dict, target_count: int = 30) -> list[Listing]:
+    async def search_and_fetch(self, query: dict, target_count: int = 30) -> tuple[str, list[Listing]]:
         query_id, ids = await self.search(query)
         raw_entries = await self.fetch(ids[:target_count], query_id)
         listings = [parse_listing(entry) for entry in raw_entries]
@@ -110,7 +111,7 @@ class TradeClient:
             for listing in listings
         ]
         listings.sort(key=lambda listing: (listing.price_chaos_equivalent is None, listing.price_chaos_equivalent))
-        return listings
+        return query_id, listings
 
     async def load_stats(self) -> StatCatalog:
         return await load_stat_catalog(self._client)

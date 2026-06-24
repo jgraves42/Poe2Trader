@@ -13,13 +13,33 @@ def _matched_mods(item: ParsedItem, stat_catalog: StatCatalog) -> list[tuple[str
     for group, mods in (("implicit", item.implicit_mods), ("explicit", item.explicit_mods)):
         for mod in mods:
             stat_id = stat_catalog.match(mod, group)
-            if stat_id is not None:
+            if stat_id is not None and (item.item_class == "Sceptres" or not stat_id.startswith("skill.")):
                 matches.append((stat_id, mod))
     return matches
 
 
 def matched_stat_ids(item: ParsedItem, stat_catalog: StatCatalog) -> set[str]:
     return {stat_id for stat_id, _mod in _matched_mods(item, stat_catalog)}
+
+
+def stat_id_text_map(item: ParsedItem, stat_catalog: StatCatalog) -> dict[str, str]:
+    return {stat_id: mod.text for stat_id, mod in _matched_mods(item, stat_catalog)}
+
+
+def build_basetype_query(item: ParsedItem) -> dict:
+    query: dict = {
+        "query": {
+            "status": {"option": "online"},
+            "type": item.base_type,
+            "stats": [{"type": "and", "filters": []}],
+        },
+        "sort": {"price": "asc"},
+    }
+    if item.rarity:
+        query["query"]["filters"] = {
+            "type_filters": {"filters": {"rarity": {"option": item.rarity.lower()}}}
+        }
+    return query
 
 
 def build_query(item: ParsedItem, stat_catalog: StatCatalog) -> dict:
