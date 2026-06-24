@@ -1,0 +1,12 @@
+Item Class: Boots
+Rarity: Rare
+Advanced Dualstring Boots
+--------
+Armour: 140
+Evasion Rating: 110
+--------
+Requires: Level 65, 100 Str, 100 Dex
+--------
+Item Level: 78
+--------
+Unidentified

@@ -1,0 +1,20 @@
+Item Class: One Hand Swords
+Rarity: Rare
+Doom Edge
+Ezomyte Blade
+--------
+Physical Damage: 25-48 (augmented)
+Critical Hit Chance: 6.50%
+Attacks per Second: 1.45 (augmented)
+--------
+Requires: Level 68, 130 Str, 90 Dex
+--------
+Sockets: S S
+--------
+Item Level: 84
+--------
+Adds 12 to 18 Fire Damage
++25% increased Attack Speed
++18% to Critical Strike Multiplier
+--------
+Corrupted

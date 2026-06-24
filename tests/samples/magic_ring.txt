@@ -1,0 +1,10 @@
+Item Class: Rings
+Rarity: Magic
+Stinging Coral Ring
+--------
+Requires: Level 24
+--------
+Item Level: 30
+--------
++20 to maximum Life (implicit)
++25% to Lightning Resistance

@@ -1,0 +1,20 @@
+Item Class: Boots
+Rarity: Rare
+Stormrider Boots
+Advanced Dualstring Boots
+--------
+Quality: +20% (augmented)
+Armour: 150 (augmented)
+Evasion Rating: 120 (augmented)
+--------
+Requires: Level 65, 100 Str, 100 Dex
+--------
+Sockets: S S
+--------
+Item Level: 76
+--------
+30% increased Movement Speed
++85 to maximum Life
++45% to Fire Resistance
++40% to Cold Resistance
++38% to Lightning Resistance

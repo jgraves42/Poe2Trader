@@ -1,0 +1,19 @@
+Item Class: Body Armours
+Rarity: Rare
+Soul Cage
+Advanced Hexer's Robe
+--------
+Quality: +20% (augmented)
+Energy Shield: 250 (augmented)
+Spirit: 100 (augmented)
+--------
+Requires: Level 70, 150 Int
+--------
+Sockets: S S S
+--------
+Item Level: 82
+--------
++1 to Level of all Skill Gems
++90 to maximum Life
++45% to Fire Resistance
++40% to Cold Resistance

@@ -1,0 +1,19 @@
+Item Class: Gloves
+Rarity: Unique
+Crystal Skull
+Spiked Gloves
+--------
+Quality: +20% (augmented)
+Armour: 80 (augmented)
+--------
+Requires: Level 60, 80 Str, 60 Dex
+--------
+Sockets: S S
+--------
+Item Level: 80
+--------
++60 to maximum Life (implicit)
+--------
+40% increased Critical Strike Chance
++25% to Critical Strike Multiplier
+30% increased Attack Speed
